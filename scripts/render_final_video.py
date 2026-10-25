@@ -29,7 +29,10 @@ def record_scene(p, chrome_path, url, duration, out_dir, interaction_fn=None):
     os.makedirs(out_dir, exist_ok=True)
     # clean dir
     for f in glob.glob(f"{out_dir}/*"):
-        os.remove(f)
+        try:
+            os.remove(f)
+        except:
+            pass
 
     browser = p.chromium.launch(executable_path=chrome_path)
     context = browser.new_context(
@@ -62,51 +65,53 @@ def scene3_interaction(page, duration):
     start_t = time.time()
     page.wait_for_timeout(2000)
 
-    # Click action button
-    action_btn = page.query_selector('button:has-text("Avaa kiertotie")')
-    if not action_btn:
-        action_btn = page.query_selector('button.bg-\\[\\#002855\\]')
-    if action_btn:
-        action_btn.click()
-        page.wait_for_timeout(2500)
-        # Close modal
-        close_btn = page.query_selector('button:has-text("Selvä, kiitos!")')
-        if close_btn:
-            close_btn.click()
-            page.wait_for_timeout(1000)
+    # 1. Click 30s Audio Button
+    audio_btn = page.query_selector('button[title*="30s"]')
+    if not audio_btn:
+        audio_btn = page.query_selector('button:has-text("(30s)")')
+    if audio_btn:
+        audio_btn.click()
+        print("Clicked 30s audio button")
+        page.wait_for_timeout(3000)
 
-    # Click next story
-    next_btn = page.query_selector('button[aria-label="Seuraava uutinen"]')
-    if next_btn:
-        next_btn.click()
-        page.wait_for_timeout(2500)
-
-    # Click headline to open broadsheet
+    # 2. Click headline to open Broadsheet 1899
     headline = page.query_selector('h2')
     if headline:
         headline.click()
-        page.wait_for_timeout(3000)
-        # Scroll modal
-        page.evaluate("() => window.scrollBy(0, 300)")
-        page.wait_for_timeout(2000)
+        print("Opened Broadsheet 1899")
+        page.wait_for_timeout(4000)
+        
+        # Scroll modal slightly
+        page.evaluate("() => { const el = document.querySelector('div.max-w-3xl'); if(el) el.scrollBy(0, 200); }")
+        page.wait_for_timeout(2500)
+        
         # Close broadsheet
-        close_bs = page.query_selector('button[aria-label="Sulje"]')
+        close_bs = page.query_selector('button[title="Sulje"]')
         if not close_bs:
             close_bs = page.query_selector('button:has(.lucide-x)')
         if close_bs:
             close_bs.click()
-            page.wait_for_timeout(1200)
+            print("Closed Broadsheet 1899")
+            page.wait_for_timeout(1500)
 
-    # Click next story again
+    # 3. Click next story button on PhoneShell
+    next_btn = page.query_selector('button[aria-label="Seuraava uutinen"]')
+    if not next_btn:
+        # Fallback: click carousel pill
+        pills = page.query_selector_all('button.rounded-full')
+        if len(pills) > 1:
+            next_btn = pills[1]
     if next_btn:
         next_btn.click()
-        page.wait_for_timeout(2000)
+        print("Switched to Story 2")
+        page.wait_for_timeout(3500)
 
-    # Toggle audio
-    audio_btn = page.query_selector('button:has-text("Kuuntele")')
-    if audio_btn:
-        audio_btn.click()
-        page.wait_for_timeout(2000)
+    # 4. Switch to Story 4 (Baana winter biking)
+    pills = page.query_selector_all('button.rounded-full')
+    if len(pills) >= 4:
+        pills[3].click()
+        print("Switched to Story 4 (Baana)")
+        page.wait_for_timeout(3500)
 
     # Wait out remaining time
     elapsed = time.time() - start_t
@@ -122,7 +127,7 @@ def main():
     server_thread = threading.Thread(target=server.serve_forever)
     server_thread.daemon = True
     server_thread.start()
-    print("Local web server active on 8998")
+    print("Local web server active on 8998 serving dist/")
 
     scene_configs = [
         {
@@ -194,11 +199,10 @@ def main():
     concat_txt_path = "video_parts/concat_list.txt"
     with open(concat_txt_path, "w", encoding="utf-8") as f:
         for part in muxed_parts:
-            # ffmpeg concat file path format
             abs_p = os.path.abspath(part).replace("\\", "/")
             f.write(f"file '{abs_p}'\n")
 
-    final_output = "Kaleva_Tasku_Demo_Video.mp4"
+    final_output = "Kaleva_Tasku_Walkthrough_Video.mp4"
     print(f"\nConcatenating all {len(muxed_parts)} scenes into {final_output}...")
     concat_cmd = [
         ffmpeg_exe, "-y",
@@ -210,13 +214,17 @@ def main():
     ]
     subprocess.run(concat_cmd, check=True)
 
+    # Also copy to Kaleva_Tasku_Demo_Video.mp4 for convenience
+    shutil.copy(final_output, "Kaleva_Tasku_Demo_Video.mp4")
+
     final_dur = get_audio_duration(ffmpeg_exe, final_output)
     final_size_mb = os.path.getsize(final_output) / (1024 * 1024)
     print(f"\n=======================================================")
-    print(f"DEMO VIDEO GENERATED: {final_output}")
+    print(f"WALKTHROUGH VIDEO GENERATED: {final_output}")
     print(f"Total Duration: {final_dur:.2f} seconds ({final_dur/60:.2f} minutes)")
     print(f"File Size: {final_size_mb:.2f} MB")
     print(f"Resolution: 1920x1080 Full HD with AAC Audio")
+    print(f"Saved directly in root folder: c:\\Users\\vinod\\Downloads\\Oksana Oulu")
     print(f"=======================================================")
 
 if __name__ == '__main__':
