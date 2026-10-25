@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Cinzel:wght@700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: radial-gradient(circle at 50% 30%, #001f3f 0%, #000c1a 100%);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: white; padding: 70px 100px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 25px; }
+  .logo { font-family: 'Cinzel', serif; font-size: 32px; letter-spacing: 4px; color: #38bdf8; font-weight: 700; }
+  .badge { background: #c8102e; color: white; padding: 8px 18px; border-radius: 9999px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .title-area { margin-top: 30px; }
+  .tagline { color: #38bdf8; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  h1 { font-size: 58px; font-weight: 800; line-height: 1.15; max-width: 1400px; }
+  p.sub { font-size: 24px; color: #94a3b8; margin-top: 15px; max-width: 1200px; line-height: 1.4; }
+  
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; margin: 40px 0; }
+  .pain-card {
+    background: rgba(255,255,255,0.05); border: 1.5px solid rgba(239, 68, 68, 0.4);
+    border-radius: 24px; padding: 36px; backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+  .card-icon { font-size: 44px; margin-bottom: 18px; }
+  .card-title { font-size: 24px; font-weight: 700; color: #fca5a5; margin-bottom: 12px; }
+  .card-desc { font-size: 18px; color: #cbd5e1; line-height: 1.5; }
+  
+  .footer-strip {
+    background: rgba(0, 40, 85, 0.6); border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 16px; padding: 18px 30px; display: flex; justify-content: space-between; align-items: center;
+    font-size: 16px; color: #93c5fd; font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <div class="logo">KALEVA MEDIA</div>
+      <div class="badge">JunctionX Oulu 2026</div>
+    </div>
+    <div style="font-size: 18px; color: #cbd5e1; font-weight: 600;">Challenge 2: News for Everyone</div>
+  </div>
+
+  <div class="title-area">
+    <div class="tagline">The Arctic Information Desert</div>
+    <h1>5,000+ International Residents Left in the Dark</h1>
+    <p class="sub">Students, researchers, and Nokia engineers in Oulu are completely isolated from vital local news when Arctic crises strike.</p>
+  </div>
+
+  <div class="cards-grid">
+    <div class="pain-card">
+      <div class="card-icon">❄️ 🚌</div>
+      <div class="card-title">1. Arctic Transit Crises</div>
+      <div class="card-desc">At −25°C, transit delays threaten physical safety. Foreign residents cannot read Finnish alert broadsheets to know where to find shelter or replacement buses.</div>
+    </div>
+
+    <div class="pain-card">
+      <div class="card-icon">📱 ⚠️</div>
+      <div class="card-title">2. WhatsApp & Jodel Panic</div>
+      <div class="card-desc">When emergency sirens echo in the city center, newcomers flock to anonymous message boards. Dangerous rumors and false alarms spread in minutes.</div>
+    </div>
+
+    <div class="pain-card">
+      <div class="card-icon">🌐 ❌</div>
+      <div class="card-title">3. Raw Translation Fails</div>
+      <div class="card-desc">Google Translate provides word-for-word translation, but misses critical Finnish institutional context, statutory rental laws, and emergency protocols.</div>
+    </div>
+  </div>
+
+  <div class="footer-strip">
+    <div>⚠️ Critical Problem: Need real-time, verified situational awareness without requiring Finnish fluency.</div>
+    <div style="color: #38bdf8; font-weight: 700;">Kaleva Tasku Solution ➔</div>
+  </div>
+</body>
+</html>

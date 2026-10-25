@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Cinzel:wght@700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: #0f172a;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: white; padding: 60px 100px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 20px; }
+  .logo { font-family: 'Cinzel', serif; font-size: 30px; letter-spacing: 4px; color: #38bdf8; font-weight: 700; }
+  .badge { background: #10b981; color: #064e3b; padding: 6px 16px; border-radius: 9999px; font-size: 13px; font-weight: 800; text-transform: uppercase; }
+
+  .title-area { margin-top: 15px; }
+  .tagline { color: #38bdf8; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+  h1 { font-size: 52px; font-weight: 800; line-height: 1.15; margin-top: 8px; }
+  p.sub { font-size: 22px; color: #94a3b8; margin-top: 8px; }
+
+  .pipeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 30px 0; }
+  .agent-card {
+    background: #1e293b; border: 2px solid #334155; border-radius: 24px; padding: 32px;
+    position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+  .agent-badge {
+    background: #0284c7; color: white; padding: 4px 12px; border-radius: 9999px;
+    font-size: 12px; font-weight: 800; text-transform: uppercase; margin-bottom: 16px; display: inline-block;
+  }
+  .agent-card h3 { font-size: 26px; font-weight: 800; margin-bottom: 12px; color: #f8fafc; }
+  .agent-card p { font-size: 16px; color: #cbd5e1; line-height: 1.6; }
+  .trust-math {
+    background: #0f172a; border-radius: 12px; padding: 14px; margin-top: 14px; font-family: monospace; font-size: 14px; color: #38bdf8;
+  }
+
+  .cockpit-bar {
+    background: linear-gradient(90deg, #064e3b 0%, #065f46 100%);
+    border: 2px solid #10b981; border-radius: 20px; padding: 22px 36px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .cockpit-title { font-size: 22px; font-weight: 800; color: #ecfdf5; }
+  .cockpit-desc { font-size: 15px; color: #a7f3d0; margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <div class="logo">KALEVA</div>
+      <div style="font-size: 24px; font-weight: 800; color: #38bdf8;">VOX NEWSROOM</div>
+    </div>
+    <div class="badge">Autonomous 3-Agent Architecture</div>
+  </div>
+
+  <div class="title-area">
+    <div class="tagline">Editorial Ethics & Verification</div>
+    <h1>The 3-Agent Pipeline + Human Cockpit</h1>
+    <p class="sub">Automating speed and verification while strictly upholding Finland's JSN Council for Mass Media ethics.</p>
+  </div>
+
+  <div class="pipeline">
+    <div class="agent-card">
+      <span class="agent-badge">Agent 1 • Radar</span>
+      <h3>Tutkija (Investigator)</h3>
+      <p>Monitors civic feeds (api.ouka.fi, Fintraffic, RSS, community tips). Automatically strips personal data for GDPR compliance and geo-tags events to Oulu districts.</p>
+      <div class="trust-math">✓ GDPR Scrubbing<br>✓ Geo-District Clustering</div>
+    </div>
+
+    <div class="agent-card" style="border-color: #38bdf8;">
+      <span class="agent-badge" style="background: #38bdf8; color: #001833;">Agent 2 • Ethics</span>
+      <h3>JSN Auditor (Math of Trust)</h3>
+      <p>Evaluates raw tips with open, mathematical verification rules before passing to the news desk:</p>
+      <div class="trust-math">
+        +40% Official 112/Rescue match<br>
+        +35% 3 Geotagged witnesses<br>
+        −15% Anonymous source penalty
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <span class="agent-badge">Agent 3 • Voice</span>
+      <h3>Cultural Decoder</h3>
+      <p>Translates cultural context to eliminate panic. Explains why 3 fire trucks for burnt bakery smoke is standard Finnish building safety law, not an emergency crisis.</p>
+      <div class="trust-math">✓ Selkosuomi & English<br>✓ Panic Mitigation</div>
+    </div>
+  </div>
+
+  <div class="cockpit-bar">
+    <div>
+      <div class="cockpit-title">🛡️ Human-in-the-Loop Editorial Cockpit</div>
+      <div class="cockpit-desc">No story publishes autonomously. Kaleva's editor maintains final sign-off with 1-click verification conforming to JSN § 10 & § 20.</div>
+    </div>
+    <div style="background: #ffffff; color: #064e3b; font-weight: 800; padding: 10px 22px; border-radius: 9999px; font-size: 14px;">
+      100% JSN § 10 Verified
+    </div>
+  </div>
+</body>
+</html>

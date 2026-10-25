@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Cinzel:wght@700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: linear-gradient(135deg, #001833 0%, #002855 60%, #003a7a 100%);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: white; padding: 70px 100px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 25px; }
+  .logo { font-family: 'Cinzel', serif; font-size: 32px; letter-spacing: 4px; color: white; font-weight: 700; }
+  .badge { background: #38bdf8; color: #001833; padding: 8px 18px; border-radius: 9999px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  
+  .title-area { margin-top: 20px; }
+  .tagline { color: #38bdf8; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+  h1 { font-size: 64px; font-weight: 800; line-height: 1.15; }
+  p.sub { font-size: 24px; color: #cbd5e1; margin-top: 12px; max-width: 1300px; line-height: 1.4; }
+
+  .dual-engine-box { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 35px 0; }
+  .engine-card {
+    background: rgba(255,255,255,0.07); border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 28px; padding: 40px; backdrop-filter: blur(12px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3); position: relative;
+  }
+  .engine-highlight {
+    border-color: #38bdf8; background: rgba(56, 189, 248, 0.1);
+  }
+  .engine-tag {
+    display: inline-block; padding: 6px 16px; border-radius: 9999px; font-size: 13px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;
+  }
+  .tag-blue { background: #38bdf8; color: #001833; }
+  .tag-gold { background: #f59e0b; color: #000; }
+  .engine-title { font-size: 32px; font-weight: 800; margin-bottom: 14px; }
+  .engine-desc { font-size: 18px; color: #e2e8f0; line-height: 1.6; }
+
+  .footer-stats {
+    display: flex; justify-content: space-around; background: rgba(0,0,0,0.3); border-radius: 20px;
+    padding: 20px; border: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item { text-align: center; }
+  .stat-num { font-size: 36px; font-weight: 800; color: #38bdf8; }
+  .stat-label { font-size: 14px; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <div class="logo">KALEVA</div>
+      <div style="font-size: 26px; font-weight: 800; color: #f87171;">TASKU</div>
+    </div>
+    <div class="badge">The Innovation Solution</div>
+  </div>
+
+  <div class="title-area">
+    <div class="tagline">The Dual-Engine Media Innovation</div>
+    <h1>Kaleva Tasku: Visual News & Civic Decoder</h1>
+    <p class="sub">Uniting 125 years of Nordic journalistic authority with zero-translation situational ergonomics for smartphones.</p>
+  </div>
+
+  <div class="dual-engine-box">
+    <div class="engine-card engine-highlight">
+      <span class="engine-tag tag-blue">Engine 1 • Mobile Generation</span>
+      <h2 class="engine-title">📱 Tasku Pocket Cards</h2>
+      <p class="engine-desc">
+        Fast, swipeable mobile card deck built for Gen Z, expats, and students. Instant ISO situation pictograms, interactive civic glossary drawers, and direct 1-tap solution actions.
+      </p>
+    </div>
+
+    <div class="engine-card">
+      <span class="engine-tag tag-gold">Engine 2 • 125-Year Tradition</span>
+      <h2 class="engine-title">🗞️ Broadsheet 1899</h2>
+      <p class="engine-desc">
+        One tap expands any card into the authentic multi-column newspaper layout with deep investigative reporting, verified journalist bylines, and the official JSN ethics accreditation stamp.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-stats">
+    <div class="stat-item">
+      <div class="stat-num">&lt; 2 Seconds</div>
+      <div class="stat-label">Comprehension Time</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100% Verified</div>
+      <div class="stat-label">Council for Mass Media (JSN)</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Dual-Engine</div>
+      <div class="stat-label">Never Compromises Editorial Depth</div>
+    </div>
+  </div>
+</body>
+</html>

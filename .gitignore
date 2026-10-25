@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env
+.env.*
+.DS_Store
+*.log
+scratch_*.py
+test_*.py
+__pycache__/
+.vscode/
+.idea/
